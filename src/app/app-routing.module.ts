@@ -13,7 +13,8 @@ const routes: Routes = [{
     loadChildren:'./landing/landing.module#LandingModule'
   },{
     path:'admin-portal',
-    loadChildren:'./admin-portal/admin-portal.module#AdminPortalModule'
+    loadChildren:'./admin-portal/admin-portal.module#AdminPortalModule',
+    canActivate:[AuthGuard]
   }]
 }];
 

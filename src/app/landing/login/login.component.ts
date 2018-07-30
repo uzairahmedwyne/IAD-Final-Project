@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import {AuthService} from '../services/auth.service';
+import {AuthService} from '../../shared/services/auth.service';
 
 declare var $:any;
 
@@ -54,9 +54,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit(ld: NgForm): void {
     this.authService.login(ld).subscribe(
-      data => {
-        console.log(data)
+      Data => {
+        console.log(Data)
+        if(Data.data.role==='citizen'){
         this.router.navigate([this.returnUrl]);
+        }
+        else if(Data.data.role==='admin'){
+          this.router.navigate(['admin-portal']);
+          }
       },
       err => {
         window.alert(err.error.message);

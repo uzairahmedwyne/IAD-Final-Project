@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators';
-
-const loginURL='http://192.168.137.44:8000/api/auth';
+import {baseUrl} from '../../shared/baseUrl';
+import { Router } from '../../../../node_modules/@angular/router';
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router:Router) { }
 
   login(ld){
-    return this.http.post<any>(loginURL, {email:ld.value.email,password:ld.value.password})
+    return this.http.post<any>(baseUrl+'auth', {email:ld.value.email,password:ld.value.password})
     .pipe(
       map((user => {
         console.log(user)
@@ -20,6 +20,11 @@ export class AuthService {
         return user;
       }))
     );
+  }
+  
+  signOut():void{
+    localStorage.removeItem('token');
+    this.router.navigate(['/landing']);
   }
 
 }

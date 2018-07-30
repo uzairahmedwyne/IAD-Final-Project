@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import { ClientPortalRoutingModule } from './client-portal-routing.module';
 import { ClientPortalComponent } from './client-portal.component';
@@ -9,6 +10,8 @@ import {SharedModule} from '../shared/shared.module';
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     ClientPortalRoutingModule,
     SharedModule
   ],

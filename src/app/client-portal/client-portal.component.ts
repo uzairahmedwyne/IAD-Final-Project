@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../shared/services/auth.service';
 
 declare var $:any;
 
@@ -11,7 +12,7 @@ declare var $:any;
 
 export class ClientPortalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
     $('.ui.dropdown').dropdown();
@@ -20,4 +21,7 @@ export class ClientPortalComponent implements OnInit {
     .modal('attach events', '#issueReportingModal', 'show');
   }
 
+  onClick():void{
+    this.authService.signOut();
+  }
 }

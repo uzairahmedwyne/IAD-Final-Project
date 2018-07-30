@@ -8,8 +8,6 @@ import { SignupComponent } from './signup/signup.component';
 import{SharedModule} from '../shared/shared.module';
 
 
-
-import { AuthService } from './services/auth.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +16,6 @@ import { AuthService } from './services/auth.service';
     LandingRoutingModule
   ],
   declarations: [LoginComponent, SignupComponent],
-  providers: [AuthService]
+  providers: []
 })
 export class LandingModule { }

@@ -1,84 +1,79 @@
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h1 class="ui teal header">
+      <div class="content">
+        Sign-Up For Free
+      </div>
+    </h1>
 
-  <div class="ui middle aligned center aligned grid">
-      <div class="column">
-        <h1 class="ui teal header">
-          <div class="content">
-            Sign-Up For Free
-          </div>
-        </h1>
-    
-        <form class="ui form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-          <div class="ui stacked segment">
-          
+    <form class="ui form" #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+      <div class="ui stacked segment">
+
+        <div class="field">
+          <label>Name</label>
+          <input type="text" name="username" ngModel>
+        </div>
+
+        <div class="two fields">
           <div class="field">
-            <label>Name</label>
-            <input type="text" name="username" ngModel>
+            <label>Email</label>
+            <input type="email" name="email" ngModel>
           </div>
 
-          <div class="two fields">
-              <div class="field">
-                    <label>Email</label>
-                    <input type="email" name="email" ngModel>
-              </div>
-
-            <div class="field">
-                <label>CNIC</label>
-                <input type="text" name="cnic" ngModel>
-            </div>
+          <div class="field">
+            <label>CNIC</label>
+            <input type="text" name="cnic" ngModel>
           </div>
-    
-          <div class="two fields">
-            <div class="field">
-                  <label>Password</label>
-                <input type="password" name="password" ngModel>
-            </div>
+        </div>
 
-            <div class="field">
-                    <label>Confirm Password</label>
-                  <input type="password" name="confirmPassword" ngModel>
-            </div>
+        <div class="two fields">
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" ngModel>
           </div>
 
-          <div class="two fields">
-            <div class="field">
-                    <label>City</label>
-                    <div class="ui search selection dropdown" name="city">
-                        <input type="hidden">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Select City</div>
-                        <div class="menu">
-                            <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
-                            <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
-                            <div class="item" data-value="al"><i class="al flag"></i>Albania</div>
-                            <div class="item" data-value="dz"><i class="dz flag"></i>Algeria</div>
-                        </div>
-                      </div>
-            </div>
+          <div class="field">
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" ngModel>
+          </div>
+        </div>
 
-            <div class="field">
-                    <label>Area</label>
-                    <div class="ui search selection dropdown" name="area">
-                        <input type="hidden">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Select Area</div>
-                        <div class="menu">
-                            <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
-                            <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
-                            <div class="item" data-value="al"><i class="al flag"></i>Albania</div>
-                            <div class="item" data-value="dz"><i class="dz flag"></i>Algeria</div>
-                        </div>
-                      </div>
-            </div>
-          </div>
-            <button type="submit" class="ui fluid large teal submit button">SignUp</button>
-          </div>
-    
-          <div class="ui error message"></div>
-        </form>
-    
-        <div class="ui message">
-          Already have an account?
-          <a [routerLink]="['/landing']">LogIn</a>
+        <div class="two fields">
+          <div class="field">
+            <label>City</label>
+            <select class="ui search selection dropdown" name="city" ngModel>
+              <option class="default text" value="" selected disabled hidden>Select City</option>
+              <option class="item" value="Karachi">Karachi</option>
+              <option class="item" value="Lahore">Lahore</option>
+              <option class="item" value="Sukkur">Sukkur</option>
+              <option class="item" value="Hyderabad">Hyderabad</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Area</label>
+          <select class="ui search selection dropdown" name="area" ngModel>
+            <option class="default text" value="" selected disabled hidden>Select Area</option>
+            <option class="item" value="Gulistan-e-Johar">
+              Gulistan-e-Johar</option>
+            <option class="item" value="Gulshan-e-Iqbal">
+              Gulshan-e-Iqbal</option>
+            <option class="item" value="Malir">
+              Malir</option>
+            <option class="item" value="Nazimabad">
+              Nazimabad</option>
+          </select>
         </div>
       </div>
-    </div>
+      <button type="submit" class="ui fluid large teal submit button">SignUp</button>
+  </div>
+
+  <div class="ui error message"></div>
+  </form>
+
+  <div class="ui message">
+    Already have an account?
+    <a [routerLink]="['/landing']">LogIn</a>
+  </div>
+</div>
+</div>

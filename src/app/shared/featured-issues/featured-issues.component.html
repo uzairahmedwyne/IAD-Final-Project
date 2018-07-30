@@ -1,22 +1,25 @@
 
-<div class="ui grid container">
-  <div class="ui padded segment">
+<div class="ui grid container" *ngIf="!noIssue">
+  <div class="ui padded segment" *ngFor = "let issue of issues;">
     <div class="content">
-      <div class="ui header">Issue Title</div>
+      <div class="ui header">{{issue.title | uppercase}}</div>
       <div class="meta">
-        <span>Posted on 13-04-2012 by <a>Imran khan</a></span>
-        <label class="ui mini red tag label">Water Issue</label>
-        <label class="ui mini teal tag label">In progress</label>
+        <!-- <span>Posted on 13-04-2012 by <a>Imran khan</a></span> -->
+        <label class="ui mini red tag label">{{issue.category}}</label>
+        <label class="ui mini teal tag label">{{issue.status}}</label>
       </div>
       <div class="ui sub header">Description:</div>
       <div class="ui segment">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eleifend libero sed eros malesuada molestie. Aliquam ut lobortis ante. Pellentesque metus dolor, consectetur ut velit a, rhoncus hendrerit tellus. In hac habitasse platea dictumst. Duis eu ligula finibus, ultricies dolor sit amet, dignissim erat. Fusce cursus gravida justo, et ullamcorper ligula tempor et. Duis lacus elit, eleifend hendrerit auctor eget, mollis accumsan neque. Suspendisse potenti. Sed a imperdiet urna, et vulputate est.</p>
+        <p>{{issue.description}}</p>
       </div>
       <div class="extra">
-        <i class="green arrow alternate circle up large icon"></i>121 pushups
-        <i class="red arrow alternate circle down large icon"></i>121 pushdowns
-        <button class="ui right floated blue button">Push</button>
+        <i class="green arrow alternate circle up large icon" (click)="push(issue.id, 'up')"></i>{{issue.pushUp}} pushups
+        <i class="red arrow alternate circle down large icon" (click)="push(issue.id, 'down')"></i>{{issue.pushDown}} pushdowns
       </div>
     </div>
   </div>
+  </div>
+
+  <div *ngIf= "noIssue">
+    <h1>No Issue Found</h1>
   </div>

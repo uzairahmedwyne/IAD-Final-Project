@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import {UserService} from '../services/user.service';
 
 declare var $:any;
 
@@ -9,7 +12,10 @@ declare var $:any;
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  returnUrl:string;
+  isPasswordMatched:boolean=false;
+
+  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     $('.ui.form')
@@ -45,6 +51,30 @@ export class SignupComponent implements OnInit {
       });
 
       $('.ui.search.selection.dropdown').dropdown();
+
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+
+  // matchPasswords(){
+  //   if(sd.value.password===sd.value.confirmPassword){
+  //     this.isPasswordMatched=true;
+  //   }
+  //   else{
+  //     this.isPasswordMatched=false;
+  //     window.alert("password & confirm password didnot matched");
+  //     return;
+  //   }
+  // }
+  onSubmit(sd: NgForm): void {
+    //sd.value.cnic=Number.parseInt(sd.value.cnic);
+    this.userService.signUp(sd).subscribe(
+      data => {
+        console.log(data)
+        this.router.navigate([this.returnUrl]);
+      },
+      err => {
+        window.alert(err.error.message);
+      });
   }
 
 }
