@@ -1,0 +1,13 @@
+
+.ui.middle.aligned.center.aligned.grid {
+    background: #DADADA;
+    height: 100%;
+        .column {
+            max-width: 450px;
+            .header{
+                .content{
+                    font-weight: bolder;
+                }
+            }
+        }
+  }

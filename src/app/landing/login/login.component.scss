@@ -1,0 +1,13 @@
+
+.grid {
+    height: 100%;
+    background-color: #DADADA;
+        .column {
+            max-width: 450px;
+            .header{
+                .content{
+                    font-weight: bolder;
+                }
+            }
+        }
+  }

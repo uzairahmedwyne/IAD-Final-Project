@@ -1,10 +1,11 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+/src/assets/semantic/dist
 /dist-server
-/tmp
-/out-tsc
+/src/assets/semantic/tmp
+/src/assets/semantic/out-tsc
+/src/assets/semantic/src
 
 # dependencies
 /node_modules
